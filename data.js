@@ -1,13 +1,8 @@
-// Function to get the birth year from the input field
-function getBirthYear() {
+
+function checkResult() {
+
     const birthyearInput = document.getElementById("birthYear");
-    const birth = parseInt(birthyearInput.value); // Convert the input value to an integer
-
-    const result = checkResult(birth) // Call checkResult with the birth year
-    displayResult(result) // Display the result in the HTML
-}
-
-function checkResult(tahunLahir) {
+    const tahunLahir = birthyearInput.value; // Convert the input value to an integer
 
     let generasi;
 
@@ -23,12 +18,13 @@ function checkResult(tahunLahir) {
         generasi = "Alpha"
     }
 
-    return generasi; // Return the generation name
-}
-
-function displayResult(generasi) {
     const generationDiv = document.getElementById("generation");
-    generationDiv.textContent = `Generai Anda: ${generasi}`
-    generationDiv.style.color = "#ff5722"
-}
 
+    generationDiv.textContent = `Generasi Kamu: ${generasi}`;
+    generationDiv.style.color = "#ff5722"
+
+    setTimeout(() => {
+        generationDiv.textContent = "";
+        generationDiv.style.color = "";
+    }, 4000);
+}
